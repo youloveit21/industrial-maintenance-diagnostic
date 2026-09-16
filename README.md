@@ -40,3 +40,9 @@ python3 /path/to/plugin-creator/scripts/validate_plugin.py .
 ```
 
 Behavioral quality should also be evaluated against the scenario rubric in `tests/README.md`; structural validation alone cannot prove diagnostic quality.
+
+## Readiness and repair records
+
+See [release readiness](docs/release-readiness.md) for completed work and remaining installation, documentation, and behavioral evaluation steps.
+
+Use [the blank repair record](templates/repair-record.json) to capture a machine, symptom, measurements, hypotheses, repair, and verification separately from OEM manuals. See [record instructions](templates/README.md). This is a portable record template, not an active database or automatic memory service.

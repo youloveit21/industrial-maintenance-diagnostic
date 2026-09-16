@@ -8,3 +8,4 @@ knowledge/manuals/**/*.pdf
 knowledge/manuals/**/*.PDF
 *.key
 *.pem
+records/private/

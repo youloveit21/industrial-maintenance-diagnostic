@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "session_id": null,
+  "status": "open",
+  "opened_at": null,
+  "closed_at": null,
+  "machine": {
+    "asset_id": null,
+    "manufacturer": null,
+    "model": null,
+    "serial": null,
+    "controller_model": null,
+    "firmware": null
+  },
+  "fault": {
+    "alarm_code": null,
+    "alarm_text": null,
+    "symptom": null,
+    "operating_state": null,
+    "recent_changes": null,
+    "expected_sequence": null,
+    "first_failed_step": null
+  },
+  "sources": [{
+    "document_id": null,
+    "revision": null,
+    "page_or_section": null,
+    "applicability": null
+  }],
+  "observations": [],
+  "measurements": [{
+    "id": null,
+    "recorded_at": null,
+    "operating_state": null,
+    "instrument": null,
+    "setting": null,
+    "test_point": null,
+    "reference_point": null,
+    "value": null,
+    "unit": null,
+    "expected_range_or_state": null,
+    "expectation_source": null
+  }],
+  "hypotheses": [{
+    "cause": null,
+    "confidence": "unknown",
+    "supporting_evidence_ids": [],
+    "contradictions": [],
+    "next_test": null
+  }],
+  "confirmed_root_cause": null,
+  "repair": {
+    "description": null,
+    "parts": [],
+    "parameter_changes": [],
+    "performed_at": null
+  },
+  "verification": {
+    "original_fault_retested": false,
+    "operating_conditions": null,
+    "cycle_count": null,
+    "sequence_result": null,
+    "affected_safety_checks": null,
+    "recurrence": null,
+    "new_alarms": null,
+    "verified_by": null,
+    "verified_at": null
+  }
+}
