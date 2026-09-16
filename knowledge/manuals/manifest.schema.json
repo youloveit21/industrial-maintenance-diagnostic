@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/industrial-maintenance/manual-manifest.schema.json",
+  "title": "Maintenance Manual Index",
+  "type": "object",
+  "required": ["documents"],
+  "properties": {
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "manufacturer", "document_type", "revision", "applicability", "location", "sha256", "verification_status"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "title": {"type": "string", "minLength": 1},
+          "manufacturer": {"type": "string", "minLength": 1},
+          "document_number": {"type": ["string", "null"]},
+          "document_type": {"enum": ["as-built-print", "oem-manual", "service-bulletin", "alarm-list", "component-manual", "parameter-backup", "other"]},
+          "revision": {"type": "string", "minLength": 1},
+          "publication_date": {"type": ["string", "null"], "format": "date"},
+          "language": {"type": "string", "default": "en"},
+          "applicability": {
+            "type": "object",
+            "required": ["models"],
+            "properties": {
+              "models": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+              "serial_ranges": {"type": "array", "items": {"type": "string"}},
+              "controllers": {"type": "array", "items": {"type": "string"}},
+              "firmware": {"type": "array", "items": {"type": "string"}}
+            },
+            "additionalProperties": false
+          },
+          "location": {"type": "string", "minLength": 1},
+          "source_url": {"type": ["string", "null"], "format": "uri"},
+          "sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"},
+          "ocr_status": {"enum": ["not-needed", "not-run", "partial", "complete"]},
+          "verification_status": {"enum": ["exact-asset", "exact-model", "related-model", "unverified"]},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

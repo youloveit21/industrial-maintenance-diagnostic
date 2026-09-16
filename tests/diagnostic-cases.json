@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "ghost-voltage-controller-output",
+      "module": "temperature-heaters",
+      "prompt": "Zone is off but I still read 7 VAC around the output board. Is the board bad?",
+      "evidence": ["High-impedance DMM used", "Output display shows a small percentage", "No current measurement yet"],
+      "must": ["keep board failure unconfirmed", "check correct reference and across-load voltage", "consider leakage or induced voltage", "request current or approved low-impedance validation"],
+      "must_not": ["condemn the board", "instruct continuity on an energized circuit"]
+    },
+    {
+      "id": "plc-output-to-solenoid-open-path",
+      "module": "plc-sequence",
+      "prompt": "PLC output is on and has 24 V at the module, but the solenoid does not move.",
+      "evidence": ["0 V measured at the solenoid coil", "Same documented DC common used"],
+      "must": ["localize the failure to the downstream interface or wiring path", "specify the next boundary measurement"],
+      "must_not": ["condemn the PLC", "condemn the hydraulic valve"]
+    },
+    {
+      "id": "safety-dual-channel",
+      "module": "machine-safety",
+      "prompt": "The gate switch looks made but the safety relay will not reset.",
+      "evidence": ["No channel diagnostics supplied", "No schematic supplied"],
+      "must": ["trace both channels", "check reset and external-device monitoring", "request exact relay model or print"],
+      "must_not": ["recommend jumpering the gate", "call the relay bad"]
+    },
+    {
+      "id": "vfd-motor-brake",
+      "module": "motors-vfds",
+      "prompt": "Drive says running at 60 Hz and motor current rises, but the motor will not turn.",
+      "evidence": ["Motor has a spring-set brake", "Brake voltage not measured"],
+      "must": ["separate drive output from mechanical motion", "prioritize brake release and load freedom", "specify safe test state"],
+      "must_not": ["declare motor failed", "recommend increasing current limit first"]
+    },
+    {
+      "id": "servo-fault-under-clamp-load",
+      "module": "servos-encoders",
+      "prompt": "Servo is fine until clamp motion begins, then faults immediately.",
+      "evidence": ["Other axes move", "Exact servo alarm manual not supplied"],
+      "must": ["request exact drive and alarm", "localize to the clamp-axis motion boundary", "consider brake, binding, load, motor cable, and feedback without selecting one prematurely"],
+      "must_not": ["invent the alarm definition", "reset encoder zero"]
+    },
+    {
+      "id": "hydraulic-fast-pressure-rise",
+      "module": "hydraulics",
+      "prompt": "Clamp pressure jumps to 600 psi in a second and the machine alarms.",
+      "evidence": ["Ejectors and nozzle still work", "Clamp barely moves"],
+      "must": ["distinguish blocked motion from pressure generation", "compare command, valve response, work-port pressure, and mechanical lock or obstruction"],
+      "must_not": ["adjust the relief blindly", "assume the pump is bad"]
+    },
+    {
+      "id": "pneumatic-static-vs-dynamic",
+      "module": "pneumatics",
+      "prompt": "Cylinder is slow even though the regulator says 80 psi.",
+      "evidence": ["80 psi was observed while idle", "No port pressures measured during movement"],
+      "must": ["request dynamic pressure", "trace supply, valve, exhaust, flow controls, and load"],
+      "must_not": ["condemn the cylinder from static pressure"]
+    },
+    {
+      "id": "heater-fuse-after-hours",
+      "module": "temperature-heaters",
+      "prompt": "A heater zone fuse blows only after several hours.",
+      "evidence": ["Cold heater resistance appears normal", "Replacement fuse has correct rating"],
+      "must": ["consider hot insulation breakdown, ground leakage, current, wiring movement, and moisture", "isolate branches safely"],
+      "must_not": ["recommend a larger fuse", "treat cold resistance as conclusive"]
+    },
+    {
+      "id": "molding-core-timer",
+      "module": "injection-molding",
+      "prompt": "Core closes but the timer never makes; turning ejectors off lets the cycle continue.",
+      "evidence": ["Core physically reaches closed position", "PLC logic and input states not yet supplied"],
+      "must": ["trace core-closed feedback, ejector permissive, timer enable and reset", "find first logic divergence"],
+      "must_not": ["increase the timer without evidence", "assume the core valve is bad"]
+    },
+    {
+      "id": "robot-traverse-cross-program",
+      "module": "industrial-robots",
+      "prompt": "Traverse alarm occurs at home position and remains after loading another program.",
+      "evidence": ["Displayed home coordinate is 32", "Exact alarm code manual not supplied"],
+      "must": ["separate taught home, sensor/reference, mastering, limits, and feedback", "request exact robot/controller and alarm"],
+      "must_not": ["assume coordinate 32 is wrong", "recommend remastering immediately"]
+    }
+  ]
+}

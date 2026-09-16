@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+knowledge/manuals/private/
+knowledge/manuals/**/*.pdf
+knowledge/manuals/**/*.PDF
+*.key
+*.pem

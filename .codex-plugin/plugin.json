@@ -1,0 +1,22 @@
+{
+  "name": "industrial-maintenance-diagnostic",
+  "version": "0.1.0",
+  "description": "Evidence-led industrial machine troubleshooting with modular electrical, controls, fluid-power, motion, heat, molding, and robot diagnostics.",
+  "author": {
+    "name": "Hunter Barnett"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Industrial Maintenance Diagnostic",
+    "shortDescription": "Prove industrial machine faults one test at a time.",
+    "longDescription": "Diagnose industrial electrical, PLC, safety, drive, servo, hydraulic, pneumatic, temperature, injection-molding, and robot faults using exact documentation, machine sequence, measurements, and evidence gates before condemning components.",
+    "developerName": "Hunter Barnett",
+    "category": "Developer Tools",
+    "capabilities": ["Troubleshooting", "Technical Analysis"],
+    "defaultPrompt": [
+      "Troubleshoot this machine one test at a time.",
+      "Trace where this machine sequence first fails.",
+      "Analyze this alarm using the exact OEM manual."
+    ]
+  }
+}

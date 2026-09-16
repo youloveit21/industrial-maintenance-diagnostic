@@ -1,0 +1,26 @@
+{
+  "documents": [
+    {
+      "id": "example-oem-model-controller-rev-a",
+      "title": "Replace with exact OEM document title",
+      "manufacturer": "Example OEM",
+      "document_number": "EXAMPLE-0001",
+      "document_type": "oem-manual",
+      "revision": "A",
+      "publication_date": null,
+      "language": "en",
+      "applicability": {
+        "models": ["Exact model"],
+        "serial_ranges": [],
+        "controllers": ["Exact controller"],
+        "firmware": []
+      },
+      "location": "private://manuals/example-oem-model-controller-rev-a.pdf",
+      "source_url": null,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "ocr_status": "not-run",
+      "verification_status": "unverified",
+      "notes": "Template record only; do not treat as a real source."
+    }
+  ]
+}
